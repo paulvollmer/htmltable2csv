@@ -13,3 +13,4 @@
 
 *.csv
 /htmltable2csv
+/dist

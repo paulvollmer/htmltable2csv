@@ -8,7 +8,11 @@ import (
 	"github.com/paulvollmer/htmltable2csv/scraper"
 )
 
-const version = "0.1.0"
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+)
 
 func usage() {
 	fmt.Println("Usage: htmltable2csv [flags]")
@@ -28,7 +32,7 @@ func main() {
 	flag.Parse()
 
 	if *flagVersion {
-		fmt.Printf("v%s\n", version)
+		fmt.Printf("%v, commit %v, built at %v", version, commit, date)
 		os.Exit(0)
 	}
 

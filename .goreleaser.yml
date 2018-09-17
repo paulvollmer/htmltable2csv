@@ -1,0 +1,9 @@
+project_name: htmltable2csv
+builds:
+  - binary: htmltable2csv
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - 386
