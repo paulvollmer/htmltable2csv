@@ -12,4 +12,4 @@
 *.out
 
 *.csv
-cmd/htmltable2csv/htmltable2csv
+/htmltable2csv

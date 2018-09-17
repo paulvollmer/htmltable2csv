@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/paulvollmer/htmltable2csv"
+	"github.com/paulvollmer/htmltable2csv/scraper"
 )
 
 const version = "0.1.0"
@@ -46,7 +46,7 @@ func main() {
 	scraper := htmltable2csv.Scraper{}
 	scraper.URL = *flagURL
 	scraper.Selector = *flagSelector
-	err, _ = scraper.Scrape()
+	_, err = scraper.Scrape()
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
