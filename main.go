@@ -20,6 +20,8 @@ func usage() {
 	flag.PrintDefaults()
 	fmt.Println("\nExamples:")
 	fmt.Println("  htmltable2csv -url 'https://www.w3schools.com/html/html_tables.asp' -selector '#customers > tbody > tr' -csv data.csv")
+	fmt.Println("\nAuthor     : Paul Vollmer")
+	fmt.Println("Repository : https://github.com/paulvollmer/htmltable2csv")
 	fmt.Println("")
 }
 
