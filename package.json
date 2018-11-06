@@ -1,0 +1,23 @@
+{
+  "name": "htmltable2csv",
+  "version": "0.1.0",
+  "description": "htmltable2csv is a tool to parse a html table and store the data as csv. It can be written to a file or print out to stdout",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulvollmer/htmltable2csv.git"
+  },
+  "keywords": [
+    "scraper",
+    "html-tables"
+  ],
+  "author": "Paul Vollmer",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/paulvollmer/htmltable2csv/issues"
+  },
+  "homepage": "https://github.com/paulvollmer/htmltable2csv#readme"
+}
