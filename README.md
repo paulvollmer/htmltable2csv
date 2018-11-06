@@ -1,4 +1,4 @@
-# htmltable2csv
+# htmltable2csv [![Build Status](https://travis-ci.org/paulvollmer/htmltable2csv.svg?branch=master)](https://travis-ci.org/paulvollmer/htmltable2csv)
 
 ## Introduction
 `htmltable2csv` is a tool to parse a html table and store the data as csv. It can be written to a file or print out to `stdout`.
