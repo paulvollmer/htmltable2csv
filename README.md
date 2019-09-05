@@ -1,4 +1,7 @@
-# htmltable2csv [![Build Status](https://travis-ci.org/paulvollmer/htmltable2csv.svg?branch=master)](https://travis-ci.org/paulvollmer/htmltable2csv) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/paulvollmer/htmltable2csv/blob/master/LICENSE)
+# htmltable2csv
+[![Build Status](https://travis-ci.org/paulvollmer/htmltable2csv.svg?branch=master)](https://travis-ci.org/paulvollmer/htmltable2csv)
+[![Releases](https://img.shields.io/github/v/release/paulvollmer/htmltable2csv.svg)](https://github.com/paulvollmer/htmltable2csv/releases)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/paulvollmer/htmltable2csv/blob/master/LICENSE)
 
 ## Introduction
 `htmltable2csv` is a tool to parse a html table and store the data as csv. It can be written to a file or print out to `stdout`.
@@ -31,3 +34,4 @@ Examples:
 
 ## License
 [MIT license](LICENSE)
+
