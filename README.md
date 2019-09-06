@@ -1,19 +1,28 @@
-# htmltable2csv
-[![Build Status](https://travis-ci.org/paulvollmer/htmltable2csv.svg?branch=master)](https://travis-ci.org/paulvollmer/htmltable2csv)
-[![Releases](https://img.shields.io/github/v/release/paulvollmer/htmltable2csv.svg)](https://github.com/paulvollmer/htmltable2csv/releases)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/paulvollmer/htmltable2csv/blob/master/LICENSE)
+<p align="center">
+  <img src="https://fonts.gstatic.com/s/i/materialicons/business/v1/24px.svg" height="96"/>
+  <h3 align="center">
+    htmltable2csv
+  </h3>
+  <p align="center">
+    <code>htmltable2csv</code> is a tool to parse a html table and store the data as csv, written to a <code>file</code> or print to <code>stdout</code>.
+  </p>
+  <p align="center">
+    <a href="https://travis-ci.org/paulvollmer/htmltable2csv"><img alt="Travis" src="https://img.shields.io/travis/paulvollmer/htmltable2csv/master.svg?style=flat-square"> </a>
+    <a href="https://github.com/paulvollmer/htmltable2csv/releases"><img alt="Software Release" src="https://img.shields.io/github/v/release/paulvollmer/htmltable2csv.svg?style=flat-square"></a>
+    <a href="/LICENSE"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square"></a>
+  </p>
+</p>
 
-## Introduction
-`htmltable2csv` is a tool to parse a html table and store the data as csv. It can be written to a file or print out to `stdout`.
+---
 
 ## Installation
-##### Manually
-Download your preferred flavor from the [releases page](https://github.com/paulvollmer/htmltable2csv/releases) and install manually.
-
 ##### Using go get
 ```
 go get -u github.com/paulvollmer/htmltable2csv
 ```
+
+##### Manually
+Download your preferred flavor from the [releases page](https://github.com/paulvollmer/htmltable2csv/releases) and install manually.
 
 ## Usage
 ```
@@ -35,4 +44,4 @@ Examples:
 ```
 
 ## License
-[MIT license](LICENSE)
+[MIT License](LICENSE)
