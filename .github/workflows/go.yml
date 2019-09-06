@@ -20,6 +20,7 @@ jobs:
       run: |
         go get -v -d ./...
         go get -u golang.org/x/lint/golint
+        go list -f {{.Target}} golang.org/x/lint/golint
 
     - name: Lint
       run: make lint
