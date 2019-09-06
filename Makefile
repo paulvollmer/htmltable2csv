@@ -21,7 +21,7 @@ test-all:
 release:
 	git tag -a v${VERSION} -m "Version ${VERSION}"
 	git push origin v${VERSION}
-	goreleaser
+	goreleaser --rm-dist
 release-dry:
 	goreleaser --skip-publish --skip-validate --snapshot
 
