@@ -26,6 +26,8 @@ Flags:
     	The table css selector
   -source string
     	The filepath or website url
+  -trim
+    	Trim the whitespace for each table column
   -v	Print the version and exit
 
 Examples:

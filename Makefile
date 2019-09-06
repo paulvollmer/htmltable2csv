@@ -1,4 +1,4 @@
-VERSION=0.2.0
+VERSION=0.2.1
 
 all: lint test
 
@@ -9,14 +9,13 @@ lint:
 	@go fmt ./...
 	@golint ./...
 
-test: build
+test: test-src test-cli
+test-src:
+	@go test ./...
+test-cli: build
 	@./htmltable2csv -v
 	@./htmltable2csv -source "./scraper/fixture/test1.html"                   -selector "table > tbody > tr"      -csv data_file.csv
 	@./htmltable2csv -source "https://www.w3schools.com/html/html_tables.asp" -selector "#customers > tbody > tr" -csv data_url.csv
-
-test-all:
-	@go test ./...
-	@make test
 
 release:
 	git tag -a v${VERSION} -m "Version ${VERSION}"
