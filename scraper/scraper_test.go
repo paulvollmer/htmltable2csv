@@ -18,6 +18,18 @@ func TestScraper(t *testing.T) {
 		dataEqual(t, data)
 	})
 
+	t.Run("source file and trim", func(t *testing.T) {
+		scraper := Scraper{}
+		scraper.Source = "./fixture/test2.html"
+		scraper.Selector = "table > tbody > tr"
+		scraper.Trim = true
+		data, err := scraper.Scrape()
+		if err != nil {
+			t.Error(err)
+		}
+		dataEqual(t, data)
+	})
+
 	t.Run("source url", func(t *testing.T) {
 		// Start a local HTTP server
 		server := httptest.NewServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {

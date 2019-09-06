@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -16,6 +17,7 @@ type Scraper struct {
 	Source   string
 	Selector string
 	Data     [][]string
+	Trim     bool
 }
 
 // Scrape download and parse the table data
@@ -56,7 +58,11 @@ func (s *Scraper) Scrape() ([][]string, error) {
 	doc.Find(s.Selector).Each(func(i int, table *goquery.Selection) {
 		dataRow := make([]string, 0)
 		table.Find("td").Each(func(j int, td *goquery.Selection) {
-			dataRow = append(dataRow, td.Text())
+			text := td.Text()
+			if s.Trim {
+				text = strings.TrimSpace(text)
+			}
+			dataRow = append(dataRow, text)
 		})
 		data = append(data, dataRow)
 	})
