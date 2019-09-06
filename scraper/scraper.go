@@ -5,14 +5,15 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-// Scraper store the URL, Selector and collected Data
+// Scraper store the Source, Selector and collected Data
 type Scraper struct {
-	URL      string
+	Source   string
 	Selector string
 	Data     [][]string
 }
@@ -20,18 +21,37 @@ type Scraper struct {
 // Scrape download and parse the table data
 func (s *Scraper) Scrape() ([][]string, error) {
 	var data = make([][]string, 0)
-	res, err := http.Get(s.URL)
+
+	var doc goquery.Document
+
+	_, err := url.ParseRequestURI(s.Source)
 	if err != nil {
-		return data, err
+		f, err := os.Open(s.Source)
+		if err != nil {
+			return data, err
+		}
+		defer f.Close()
+		tmp, err := goquery.NewDocumentFromReader(f)
+		if err != nil {
+			return data, err
+		}
+		doc = *tmp
+	} else {
+		res, err := http.Get(s.Source)
+		if err != nil {
+			return data, err
+		}
+		defer res.Body.Close()
+		if res.StatusCode != 200 {
+			return data, fmt.Errorf("status code error: %d %s", res.StatusCode, res.Status)
+		}
+		tmp, err := goquery.NewDocumentFromReader(res.Body)
+		if err != nil {
+			return data, err
+		}
+		doc = *tmp
 	}
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		return data, fmt.Errorf("status code error: %d %s", res.StatusCode, res.Status)
-	}
-	doc, err := goquery.NewDocumentFromReader(res.Body)
-	if err != nil {
-		return data, err
-	}
+
 	// Find the table
 	doc.Find(s.Selector).Each(func(i int, table *goquery.Selection) {
 		dataRow := make([]string, 0)
