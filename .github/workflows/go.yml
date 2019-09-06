@@ -23,7 +23,7 @@ jobs:
         go list -f {{.Target}} golang.org/x/lint/golint
 
     - name: Lint
-      run: make lint
+      run: /home/runner/go/bin/golint ./...
       
     - name: Test
       run: make test
