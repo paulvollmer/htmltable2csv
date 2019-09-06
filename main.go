@@ -27,7 +27,7 @@ func usage() {
 
 func main() {
 	flagVersion := flag.Bool("v", false, "Print the version and exit")
-	flagURL := flag.String("url", "", "The website url")
+	flagSource := flag.String("source", "", "The filepath or website url")
 	flagSelector := flag.String("selector", "", "The table css selector")
 	flagCSV := flag.String("csv", "", "The csv filename. if empty, print csv to stdout")
 	flag.Usage = usage
@@ -38,8 +38,8 @@ func main() {
 		os.Exit(0)
 	}
 
-	if *flagURL == "" {
-		fmt.Println("Flag -url cannot be empty")
+	if *flagSource == "" {
+		fmt.Println("Flag -source cannot be empty")
 		os.Exit(1)
 	}
 
@@ -50,7 +50,7 @@ func main() {
 
 	var err error
 	scraper := htmltable2csv.Scraper{}
-	scraper.URL = *flagURL
+	scraper.Source = *flagSource
 	scraper.Selector = *flagSelector
 	_, err = scraper.Scrape()
 	if err != nil {
