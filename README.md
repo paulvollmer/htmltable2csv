@@ -24,8 +24,8 @@ Flags:
     	The csv filename. if empty, print csv to stdout
   -selector string
     	The table css selector
-  -url string
-    	The website url
+  -source string
+    	The filepath or website url
   -v	Print the version and exit
 
 Examples:
@@ -34,4 +34,3 @@ Examples:
 
 ## License
 [MIT license](LICENSE)
-
