@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/paulvollmer/htmltable2csv/issues"
   },
-  "homepage": "https://github.com/paulvollmer/htmltable2csv#readme"
+  "homepage": "https://github.com/paulvollmer/htmltable2csv#readme",
+  "devDependencies": {
+    "auto-changelog": "^1.16.1"
+  }
 }

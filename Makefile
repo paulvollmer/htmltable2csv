@@ -24,4 +24,7 @@ release:
 release-dry:
 	goreleaser --skip-publish --skip-validate --snapshot
 
-.PHONY: all lint build test test-all release release-dry
+changelog:
+	./node_modules/.bin/auto-changelog -p --template keepachangelog --breaking-pattern breaking && git add CHANGELOG.md
+
+.PHONY: all lint build test test-all test-cli release release-dry changelog
