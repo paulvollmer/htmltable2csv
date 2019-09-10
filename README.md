@@ -40,7 +40,10 @@ Flags:
   -v	Print the version and exit
 
 Examples:
-  htmltable2csv -url 'https://www.w3schools.com/html/html_tables.asp' -selector '#customers > tbody > tr' -csv data.csv
+  htmltable2csv \
+  -source 'https://www.w3schools.com/html/html_tables.asp' \
+  -selector '#customers > tbody > tr' \
+  -csv data.csv
 ```
 
 ## License
