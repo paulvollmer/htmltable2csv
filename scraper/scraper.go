@@ -61,7 +61,7 @@ func (s *Scraper) Scrape() ([][]string, error) {
 	if s.Start > length {
 		return data, fmt.Errorf("cannot start looking at row %d when the table only has %d row(s)", s.Start, length)
 	}
-	if s.Stop == -1 {
+	if s.Stop == 0 {
 		s.Stop = length
 	}
 	doc.Find(s.Selector).Each(func(i int, table *goquery.Selection) {
