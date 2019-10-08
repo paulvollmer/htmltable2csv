@@ -18,6 +18,8 @@ type Scraper struct {
 	Selector string
 	Data     [][]string
 	Trim     bool
+	Start    int
+	Stop     int
 }
 
 // Scrape download and parse the table data
@@ -55,16 +57,26 @@ func (s *Scraper) Scrape() ([][]string, error) {
 	}
 
 	// Find the table
+	length := doc.Find(s.Selector).Length()
+	if s.Start > length {
+		return data, fmt.Errorf("cannot start looking at row %d when the table only has %d row(s)", s.Start, length)
+	}
+	if s.Stop == -1 {
+		s.Stop = length
+	}
 	doc.Find(s.Selector).Each(func(i int, table *goquery.Selection) {
-		dataRow := make([]string, 0)
-		table.Find("td").Each(func(j int, td *goquery.Selection) {
-			text := td.Text()
-			if s.Trim {
-				text = strings.TrimSpace(text)
-			}
-			dataRow = append(dataRow, text)
-		})
-		data = append(data, dataRow)
+		index := table.Index()
+		if index >= s.Start && index <= s.Stop {
+			dataRow := make([]string, 0)
+			table.Find("td").Each(func(j int, td *goquery.Selection) {
+				text := td.Text()
+				if s.Trim {
+					text = strings.TrimSpace(text)
+				}
+				dataRow = append(dataRow, text)
+			})
+			data = append(data, dataRow)
+		}
 	})
 	s.Data = data
 	return data, nil
