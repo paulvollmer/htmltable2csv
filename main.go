@@ -29,6 +29,8 @@ func main() {
 	flagVersion := flag.Bool("v", false, "Print the version and exit")
 	flagSource := flag.String("source", "", "The filepath or website url")
 	flagSelector := flag.String("selector", "", "The table css selector")
+	flagStart := flag.Int("start", 0, "The row to start collecting data")
+	flagStop := flag.Int("stop", 0, "The row to stop collecting data")
 	flagTrim := flag.Bool("trim", false, "Trim the whitespace for each table column")
 	flagCSV := flag.String("csv", "", "The csv filename. if empty, print csv to stdout")
 	flag.Usage = usage
@@ -54,6 +56,8 @@ func main() {
 	scraper.Source = *flagSource
 	scraper.Selector = *flagSelector
 	scraper.Trim = *flagTrim
+	scraper.Start = *flagStart
+	scraper.Stop = *flagStop
 	_, err = scraper.Scrape()
 	if err != nil {
 		fmt.Println(err)
