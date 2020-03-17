@@ -35,6 +35,10 @@ Flags:
     	The table css selector
   -source string
     	The filepath or website url
+  -start int
+      The row to begin data result
+  -stop int
+      The row to end data result
   -trim
     	Trim the whitespace for each table column
   -v	Print the version and exit
@@ -43,7 +47,9 @@ Examples:
   htmltable2csv \
   -source 'https://www.w3schools.com/html/html_tables.asp' \
   -selector '#customers > tbody > tr' \
-  -csv data.csv
+  -csv data.csv \
+  -start 0 \
+  -stop 3
 ```
 
 ## License
