@@ -7,7 +7,7 @@
     <code>htmltable2csv</code> is a tool to parse a html table and store the data as csv, written to a <code>file</code> or print to <code>stdout</code>.
   </p>
   <p align="center">
-    <a href="https://travis-ci.org/paulvollmer/htmltable2csv"><img alt="Travis" src="https://img.shields.io/travis/paulvollmer/htmltable2csv/master.svg?style=flat-square"> </a>
+    <a href="https://github.com/paulvollmer/htmltable2csv/actions?query=workflow%3ACI"><img alt="CI" src="https://github.com/paulvollmer/htmltable2csv/workflows/CI/badge.svg"> </a>
     <a href="https://github.com/paulvollmer/htmltable2csv/releases"><img alt="Software Release" src="https://img.shields.io/github/v/release/paulvollmer/htmltable2csv.svg?style=flat-square"></a>
     <a href="/LICENSE"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square"></a>
   </p>

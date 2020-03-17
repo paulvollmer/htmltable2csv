@@ -24,6 +24,9 @@ release:
 release-dry:
 	goreleaser --skip-publish --skip-validate --snapshot
 
+clean:
+	@rm -rf htmltable2csv dist
+
 changelog:
 	./node_modules/.bin/auto-changelog -p --template keepachangelog --breaking-pattern breaking && git add CHANGELOG.md
 

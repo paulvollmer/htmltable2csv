@@ -1,5 +1,7 @@
 name: CI
+
 on: [push]
+
 jobs:
 
   build:
@@ -7,18 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Set up Go 1.12
+    - name: Set up Go
       uses: actions/setup-go@v1
       with:
-        go-version: 1.12
+        go-version: 1.13
       id: go
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: Get dependencies
       run: |
-        go get -v -d ./...
+        go get -v -t -d ./...
         go get -u golang.org/x/lint/golint
         go list -f {{.Target}} golang.org/x/lint/golint
 
@@ -27,3 +29,14 @@ jobs:
       
     - name: Test
       run: make test
+    
+    - name: Build Release Artifact
+      run: |
+        curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh
+        ./bin/goreleaser --skip-publish --skip-validate --snapshot
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: dist
