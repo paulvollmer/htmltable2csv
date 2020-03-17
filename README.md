@@ -21,6 +21,11 @@
 go get -u github.com/paulvollmer/htmltable2csv
 ```
 
+##### Using homebrew
+```
+brew install paulvollmer/tap/htmltable2csv
+```
+
 ##### Manually
 Download your preferred flavor from the [releases page](https://github.com/paulvollmer/htmltable2csv/releases) and install manually.
 
