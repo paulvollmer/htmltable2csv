@@ -24,7 +24,7 @@ jobs:
         go get -u golang.org/x/lint/golint
         go list -f {{.Target}} golang.org/x/lint/golint
         curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh
-        echo "::add-path::{{.Target}}/bin/goreleaser"
+        echo "::add-path::/home/runner/go/bin"
 
     - name: Lint
       run: /home/runner/go/bin/golint ./...
